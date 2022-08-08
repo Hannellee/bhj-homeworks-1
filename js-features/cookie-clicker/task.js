@@ -1,15 +1,17 @@
-const image = document.getElementById('cookie');
-const click = document.getElementById('clicker__counter');
-const clickNumber = +click.textContent;
+let image = document.getElementById('cookie');
 
 image.onclick = function changeSizes() {
-        if ((clickNumber + 1) % 2 === 1) {
+    let click = document.getElementById('clicker__counter');
+    let clickCount = +click.textContent;
+
+    clickCount += 1;    
+
+    if (clickCount % 2 === 1) {
         image.width = 250;
-        image.height = 200;
     } else {
         image.width = 150;
-        image.height = 100;
     }
+
+    click.textContent = String(clickCount);
 }
 
-click.textContent = clickNumber;
