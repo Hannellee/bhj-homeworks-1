@@ -1,27 +1,33 @@
-const hole = document.getElementsByClassName('hole');
-const dead = document.getElementById('dead');
-const lost = document.getElementById('lost');
+let hole = document.getElementsByClassName('hole');
 
-for (let i = 0; i < hole.length; i++) { // проверять все ячейки циклом нужно так? но ведь hole - это объект, а не массив, длины нет...
-    if (hole.className.includes('hole_has-mole')) {
-        hole[i].onclick = function () {
+let holes = [...hole];
 
-            if ((dead.textContent > 10) && (lost.textContent < 5)) {
-                return;
-            } else if((dead.textContent === 10) && (lost.textContent < 5)) {
-                alert('Поздравляем! Вы победили!');
-                lost.textContent = 0;
-                dead.textContent = 0;
-            }
+for (let i = 0; i < holes.length; i++) { 
+    
+    holes[i].onclick = function () {
 
-                dead.textContent = +dead.textContent + 1;
+        let dead = document.getElementById('dead');
+        let lost = document.getElementById('lost');
 
-        } 
+
+        if (hole.className.includes('hole_has-mole')) {
+            dead.textContent = String(+(dead.textContent) + 1);
         } else {
-            lost.textContent = +lost.textContent + 1;
-            if (lost.textContent >= 5) {
-                alert('Упс! Вы проиграли!');
-                return;
-            }
+            lost.textContent = String(+(lost.textContent) + 1);
         }
+
+        if (+dead.textContent === 10 && +lost.textContent < 5) {
+            alert('Поздравляем! Вы победили!');
+            lost.textContent = '0';
+            dead.textContent = '0';    
+        } else if(+dead.textContent < 10 && +lost.textContent >= 5) {
+            alert('Упс! Вы проиграли!');
+            lost.textContent = '0';
+            dead.textContent = '0';    
+        } else {
+            return;
+        }
+
+    }
 }
+
