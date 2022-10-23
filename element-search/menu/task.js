@@ -1,23 +1,23 @@
-let menuLink = document.querySelectorAll('menu__link');
-let menuSub = document.querySelectorAll('menu');
+// let menuLink = document.querySelectorAll('.menu__link');
+// let menuSub = document.querySelectorAll('.menu_sub');
 
+let menuLinksArray = Array.from(document.querySelectorAll('.menu__link'));
+let menuSubArray = Array.from(document.querySelectorAll('.menu_sub'));
 
-
-let menuLinkArray = Array.from(menuLink);
-let menuSubArray = Array.from(menuSub);
-
-
-for (let i = 0; i < menuLinkArray.length; i++) {
+for (let i = 0; i < menuLinksArray.length; i++) {
 
     let showSubMenu = function () {
-        if (menuLinkArray[i].closest('menu')) {
+        let subLinkItem = menuLinksArray[i].closest('.menu_sub')
+        if (subLinkItem !== null) {
             for (let j = 0; j < menuSubArray.length; j++) {
                 menuSubArray[j].classList.add('menu_active')                
             }
             
             return false;
+        } else {
+            return true;
         }
     }
 
-    menuLinkArray[i].onclick = showSubMenu();
+    menuLinksArray[i].onclick = showSubMenu;
 }
