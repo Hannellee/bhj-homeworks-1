@@ -25,19 +25,19 @@ class Game {
       При неправильном вводе символа - this.fail();
      */
 
-    let symbolCurrent = document.querySelector('.symbol_current');
+    // let symbolCurrent = document.querySelector('.symbol_current');
 
-    let symbolKeyboard = function(event) {
+    let symbolKeyboard = (event) => {
 
-      if (symbolCurrent.textContent.toLocaleUpperCase == event.key.textContent.toLocaleUpperCase) {
+      if (this.currentSymbol.textContent.toLocaleUpperCase == event.key.toLocaleUpperCase) {
         this.success();
       } else {
-        this.fail()
+        this.fail();
       }
 
     }
 
-    symbolCurrent.addEventListener('keyup', symbolKeyboard);
+    this.currentSymbol.addEventListener('keyup', symbolKeyboard);
 
 
 
