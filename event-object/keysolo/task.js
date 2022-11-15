@@ -29,7 +29,7 @@ class Game {
 
     let symbolKeyboard = (event) => {
 
-      if (this.currentSymbol.textContent.toLocaleUpperCase == event.key.toLocaleUpperCase) {
+      if (this.currentSymbol.textContent.toLocaleUpperCase() == event.key.toLocaleUpperCase()) {
         this.success();
       } else {
         this.fail();
@@ -37,7 +37,7 @@ class Game {
 
     }
 
-    this.currentSymbol.addEventListener('keyup', symbolKeyboard);
+    document.addEventListener('keyup', symbolKeyboard);
 
 
 
