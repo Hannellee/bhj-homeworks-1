@@ -6,7 +6,7 @@ for (let i = 0; i < elemReveal.length; i++) {
 
         let {top, bottom} = elemReveal[i].getBoundingClientRect();
 
-        if (top < window.innerHeight || bottom > 0) {
+        if (top < window.innerHeight && bottom > 0) {
             elemReveal[i].classList.add('reveal_active')
         } else {
             elemReveal[i].classList.remove('reveal_active')
