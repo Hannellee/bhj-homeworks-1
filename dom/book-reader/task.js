@@ -5,7 +5,7 @@ let book = document.querySelector('.book')
 
 for (let i = 0; i < fontSize.length; i++) {
 
-    let fontSizeChanger = function () {
+    fontSize[i].addEventListener('click', function (e) {
         if (fontSize[i].classList.contains('font-size_active')) {
             fontSize[i].classList.remove('font-size_active');
         } else {
@@ -18,7 +18,9 @@ for (let i = 0; i < fontSize.length; i++) {
         } else if (fontSize[i].classList.contains('font-size_small')) {
             book.classList.add('book_fs-small')
         }
-    }
 
-    fontSize[i].addEventListener('click', fontSizeChanger);
+        e.preventDefault();
+
+    })
+
 }
