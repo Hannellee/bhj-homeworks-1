@@ -81,12 +81,19 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
-      }
-    ];
+
+
+      // Я написала все решение в одну строку.. Насколько это читаемо, можно ли так писать?..
+
+    return Array.from(this.input).filter(item => item.textContent.toLowerCase().includes(text.toLowerCase())).map(el => ({ text: el.textContent, value: el.value }));
+
+
+    // return [
+    //   {
+    //     text: 'Чубакка',
+    //     value: '1'
+    //   }
+    // ];
   }
 }
 
