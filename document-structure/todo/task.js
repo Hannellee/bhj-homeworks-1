@@ -3,6 +3,9 @@ let tasksList = document.getElementById('tasks__list');
 let tasksForm = document.getElementById('tasks__form');
 
 tasksForm.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
     if (input.value.trim()) {
 
         tasksList.innerHTML += `
@@ -15,10 +18,10 @@ tasksForm.addEventListener('submit', (e) => {
         `
         input.value = '';
     }
+})
 
-    tasksList.addEventListener('click', (e) => {
-        if (e.target.classList.contains('task__remove')) {
-            e.target.parentElement.remove();
-        }
-    })
+tasksList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('task__remove')) {
+        e.target.parentElement.remove();
+    }
 })
